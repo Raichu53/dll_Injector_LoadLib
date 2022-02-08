@@ -1,7 +1,8 @@
 #include <iostream>
 #include <Windows.h>
 #include <TlHelp32.h>
-
+//GH guide 
+//working great !!!
 DWORD GetProcID(const char* procName)
 {
 	DWORD procId = 0;
