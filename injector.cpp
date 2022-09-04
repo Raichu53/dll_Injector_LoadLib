@@ -6,7 +6,8 @@
 #include <d3dx9.h>
 
 
-#define ID_BUTTON	1001
+#define ID_BUTTON1	1001
+#define ID_BUTTON2	1002
 
 // Global variables
 HWND hButton;
@@ -100,17 +101,18 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		"WindowClass1",    // name of the window class
 		"injector",   // title of the window
 		WS_OVERLAPPEDWINDOW,    // window style
-		300,    // x-position of the window
-		300,    // y-position of the window
-		500,    // width of the window
-		400,    // height of the window
+		200,    // x-position of the window
+		200,    // y-position of the window
+		300,    // width of the window
+		200,    // height of the window
 		NULL,    // we have no parent window, NULL
 		NULL,    // we aren't using menus, NULL
 		hInstance,    // application handle
 		NULL);    // used with multiple windows, NULL
 	hButton = CreateWindow("button", "injection", WS_CHILD | WS_VISIBLE | WS_TABSTOP,
-		88, 76, 80, 30, hWnd, (HMENU)ID_BUTTON, hInstance, NULL);
-	
+		100, 25, 80, 30, hWnd, (HMENU)ID_BUTTON1, hInstance, NULL);
+	hButton = CreateWindow("button", "test", WS_CHILD | WS_VISIBLE | WS_TABSTOP,
+		100, 75, 80, 30, hWnd, (HMENU)ID_BUTTON2, hInstance, NULL);
 	// display the window on the screen
 	ShowWindow(hWnd, nCmdShow);
 
@@ -150,13 +152,17 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 	switch (message)
 	{
 	case WM_COMMAND:
-		if (0 == HIWORD(wParam))
+		if (ID_BUTTON1 == LOWORD(wParam))
 		{
-			injection();      
+			injection();
 			return 0;
-			
-		}break;
-
+		}
+		if (ID_BUTTON2 == LOWORD(wParam))
+		{	
+			MessageBox(NULL, "test", "test", NULL);
+			return 0;
+		}
+		break;
 		// this message is read when the window is closed
 	case WM_DESTROY:
 	{
