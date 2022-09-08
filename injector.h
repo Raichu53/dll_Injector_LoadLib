@@ -8,7 +8,6 @@
 
 
 #define ID_BUTTON1	1001
-#define ID_BUTTON2	1002
 
 LRESULT CALLBACK WindowProc(HWND hWnd,
 	UINT message,

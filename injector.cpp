@@ -42,8 +42,6 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		NULL);    // used with multiple windows, NULL
 	hButton = CreateWindow("button", "injection", WS_CHILD | WS_VISIBLE | WS_TABSTOP,
 		100, 25, 80, 30, hWnd, (HMENU)ID_BUTTON1, hInstance, NULL);
-	hButton = CreateWindow("button", "test", WS_CHILD | WS_VISIBLE | WS_TABSTOP,
-		100, 75, 80, 30, hWnd, (HMENU)ID_BUTTON2, hInstance, NULL);
 	// display the window on the screen
 	ShowWindow(hWnd, nCmdShow);
 
